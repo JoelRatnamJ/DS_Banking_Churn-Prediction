@@ -1,0 +1,132 @@
+Bankrupt - 1- 220 data points
+	 - 0- 6599 data points
+Total dp - 6819
+class imbalance treatment needed
+------------------------------------
+total columns - 95
+so input features - 94
+so need to do feature selection - PCA, check for other FS
+---------------------------------------
+Logistic Regression:
+Reasoning: Logistic Regression is a simple and interpretable classification algorithm that can effectively handle binary classification tasks. It's particularly useful when the relationship between the features and the target variable is linear or can be approximated linearly.
+Random Forest Classifier:
+Reasoning: Random Forest is an ensemble learning method that combines multiple decision trees to improve predictive performance. It's robust to overfitting, handles non-linear relationships well, and can effectively deal with a large number of input features, making it suitable for analyzing financial attributes.
+Gradient Boosting Classifier (e.g., XGBoost, LightGBM):
+Reasoning: Gradient Boosting models sequentially build decision trees, each one correcting the errors of its predecessor. They are powerful algorithms for classification tasks, often producing highly accurate results. These models handle complex relationships in the data and are robust against overfitting.
+Support Vector Machines (SVM):
+Reasoning: SVM is effective for classification tasks, especially in high-dimensional spaces. It works well when there is a clear margin of separation between classes. SVM can capture complex relationships in the data through the use of different kernel functions.
+Neural Networks (e.g., Multi-layer Perceptron):
+Reasoning: Neural networks, particularly multi-layer perceptrons (MLPs), are capable of learning complex patterns in the data. They can automatically extract features and capture non-linear relationships, making them suitable for analyzing financial data with intricate interactions among variables.
+Machine learning algorithms not suitable for this problem:
+
+k-Nearest Neighbors (KNN):
+
+Reasoning: KNN is not ideal for high-dimensional data, as it suffers from the curse of dimensionality. Since financial datasets often contain numerous features, KNN might not perform well due to increased computational complexity and reduced effectiveness in higher dimensions.
+Naive Bayes Classifier:
+
+Reasoning: Naive Bayes assumes independence among features, which might not hold true for financial data where variables can be correlated. It may oversimplify the relationships between attributes and could lead to suboptimal performance in this context.
+Decision Trees:
+
+Reasoning: While decision trees can be part of ensemble methods like Random Forest and Gradient Boosting, standalone decision trees might not perform well for complex classification tasks like identifying financial distress. They tend to be prone to overfitting and may not capture subtle relationships in the data effectively.
+-----------------------------------------------------------------
+Implementing a machine learning model for classifying companies as financially healthy or at risk of bankruptcy involves several steps. Here's an overview of the end-to-end process:
+
+Problem Definition and Data Collection:
+
+Clearly define the problem statement: in this case, it's to predict financial distress or bankruptcy based on historical financial data.
+Gather relevant data sources, which may include financial statements (income statement, balance sheet, cash flow statement), market data, economic indicators, etc. Ensure the data is accurate, comprehensive, and covers a sufficient time period.
+Data Preprocessing:
+
+Handle missing values: Impute missing values using techniques such as mean, median, or predictive imputation.
+Handle outliers: Identify and deal with outliers appropriately, either by removing them or transforming them.
+Feature engineering: Create new features from existing ones if necessary. This might involve ratios, transformations, or aggregations.
+Scale and normalize features: Ensure all features are on a similar scale to prevent any particular feature from dominating the model training process.
+Encode categorical variables: Convert categorical variables into numerical format using techniques like one-hot encoding or label encoding.
+Exploratory Data Analysis (EDA):
+
+Understand the distribution of features and target variables.
+Explore relationships between features and the target variable.
+Visualize the data using histograms, scatter plots, correlation matrices, etc., to gain insights into patterns and potential relationships.
+Feature Selection:
+
+Identify relevant features that have a significant impact on the target variable. This can be done using statistical tests, feature importance from models like Random Forest, or domain knowledge.
+Select the most informative features to reduce dimensionality and improve model interpretability and performance.
+Model Selection and Training:
+
+Split the data into training and testing sets to evaluate model performance.
+Choose appropriate machine learning algorithms (as discussed earlier) based on the problem requirements.
+Train multiple models using the training data and tune hyperparameters using techniques like cross-validation.
+Evaluate models using appropriate metrics such as accuracy, precision, recall, F1-score, and ROC-AUC.
+Model Evaluation and Validation:
+
+Validate the trained models using the test dataset to ensure they generalize well to unseen data.
+Analyze model performance metrics and compare them against baseline models or industry benchmarks.
+Use techniques like confusion matrices and ROC curves to further understand model behavior.
+Model Deployment:
+
+Deploy the trained model into a production environment where it can be accessed by stakeholders or integrated into other systems.
+Implement monitoring mechanisms to track model performance over time and ensure it continues to deliver accurate predictions.
+Model Interpretation and Explanation:
+
+Interpret the model predictions and provide explanations to stakeholders, especially regarding the factors driving the predictions.
+Techniques like SHAP (SHapley Additive exPlanations) values, feature importance plots, and partial dependence plots can help in understanding the model's decision-making process.
+Maintenance and Iteration:
+
+Regularly monitor model performance and retrain/update the model as needed with new data or changes in business requirements.
+Continuously iterate on the model implementation process to improve performance, scalability, and interpretability.
+By following these steps, you can develop and deploy a machine learning model to classify companies as financially healthy or at risk of bankruptcy, providing valuable insights for investors, financial analysts, and stakeholders.
+------------------------------------------------
+
+ Persistent EPS in the Last Four Seasons', - 2 - above 0.7
+ Net profit before tax/Paid-in capital', " -2->0.7
+Net Income to Stockholder's Equity", ' 
+Borrowing dependency', ' 
+Net Income to Total Assets', ' -1- <0.1
+Per Share Net profit before tax (Yuan �', ' -2->0.7 
+Interest Expense Ratio', ' 
+Interest Coverage Ratio (Interest expense to EBIT)', - 2-<0.2 and 1->0.9
+' ROA(A) before interest and % after tax', 
+' Degree of Financial Leverage (DFL)', -1->0.9
+' Continuous interest rate (after tax)',-1-<0.2
+' Debt ratio %', -1->0.9
+' Retained Earnings to Total Assets', -1-<0.2
+' Net worth/Assets', -1-<0.2
+' Total income/Total expense', -1->0.9
+ Equity to Liability', 
+' ROA(C) before interest and depreciation before interest', 
+' ROA(B) before interest and depreciation after tax', 
+' Net Value Per Share (B)', 
+' Net Value Per Share (C)', 
+' Net Value Per Share (A)', 
+' Pre-tax net Interest Rate', -1-<0.2
+' Liability to Equity', 
+' After-tax net Interest Rate', -1-<0.2
+' Non-industry income and expenditure/revenue', -2->0.7
+' Current Ratio', -2->0.6
+' Working Capital to Total Assets', - 1-<0.2
+' Current Liability to Current Assets',-2->0.6 
+' Operating Profit Per Share (Yuan �', -2->0.6
+' Operating profit/Paid-in capital', -2->0.6
+' Current Liability to Equity', - yellow scatters
+' Current Liabilities/Equity', - yellow scatters
+' Operating profit per person', - check if it needs to be deleted
+' Operating Profit Rate', - 1-<0.2
+' Inventory/Working Capital', -1->0.8
+' Working capitcal Turnover Rate', -1->0.9
+' Working Capital/Equity', yellow scatters
+' Tax rate (A)', 
+' Current Liability to Assets', -1->0.8
+' Cash/Total Assets', 
+' Operating Gross Margin', -2-<0.2
+' After-tax Net Profit Growth Rate', -2-<0.2
+' Realized Sales Gross Margin', -2-<0.2
+' Gross Profit to Sales', -2-<0.2
+' Cash flow rate', -1-<0.1
+' Regular Net Profit Growth Rate', -2-<0.2
+' Continuous Net Profit Growth Rate', -1->0.8
+' Operating Funds to Liability', 
+' Total Asset Return Growth Rate Ratio', -1 -<0.05
+' Total Asset Growth Rate', 
+' Equity to Long-term Liability'] -2->0.8
+No of Columns selected: 51
+No of Columns selected: 51
