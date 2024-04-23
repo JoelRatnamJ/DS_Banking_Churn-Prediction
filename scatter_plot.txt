@@ -1,0 +1,22 @@
+numeric_cols = X_train.select_dtypes(include = np.number) ### selects numeric columns
+#numeric_cols.drop(['REF_NO', 'year_last_moved'], axis=1, inplace=True)
+
+#numeric_cols = numeric_cols.loc[numeric_cols['Balance Transfer']<2500, :]
+
+#target_train = target_train.drop([937])
+
+
+column_names = list(numeric_cols.columns)
+
+col_index = 0
+
+plot_rows = 18
+plot_cols = 3
+
+fig, ax = plt.subplots(nrows = plot_rows,ncols=plot_cols,figsize = (20,80))
+
+for row_count in range(plot_rows):
+    for col_count in range(plot_cols):
+        ax[row_count][col_count].scatter(y = numeric_cols[column_names[col_index]],x=numeric_cols.index, c= Y_train)
+        ax[row_count][col_count].set_ylabel(column_names[col_index])
+        col_index = col_index + 1
